@@ -3,13 +3,16 @@ import './index.css'
 import { RouterProvider } from 'react-router-dom'
 import { Toaster } from 'sonner'
 
+import { ThemeProvider } from './components/theme/theme-provider'
 import { router } from './routes'
 
 export function App() {
   return (
     <>
-      <Toaster richColors />
-      <RouterProvider router={router} />
+      <ThemeProvider defaultTheme="dark" storageKey="pizzashop-theme">
+        <Toaster richColors />
+        <RouterProvider router={router} />
+      </ThemeProvider>
     </>
   )
 }
